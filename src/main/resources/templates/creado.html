@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	
+	<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/style.css" rel="stylesheet" type="text/css" /> 
+</head>
+<body class="bd">
+
+	<br /><br />
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<h1> Libro CREADO o ACTUALIZADO !! </h1>
+		</div>
+		<br />
+		<table class="table table-striped">
+			<tr>
+				<thead>
+					<th>ID</th>
+					<th>Título</th>
+					<th>Género</th>
+					<th>Autor</th>
+					<th></th>
+				</thead>
+			</tr>
+			<tr>
+				<td th:text="${libros.ID}"> </td>
+				<td th:text="${libros.titulo}"> </td>
+				<td th:text="${libros.genero}"> </td>
+				<td th:text="${libros.autor}"> </td>
+			</tr>
+		</table>
+	</div>
+	<br/>
+	<a class="btn btn-info" href="/"> VOLVER </a>
+		
+</body>
+</html>

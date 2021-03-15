@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	
+	<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/style.css" rel="stylesheet" type="text/css" /> 
+</head>
+<body class="bd">
+
+	 <br/><br/>
+	 <div class="panel panel-info">
+	 	<div class="panel-heading">
+			 <center> <h2> FORMULARIO Libros </h2> </center>
+		  </div>
+		<form action="#" th:action="@{/crear}" th:object="${libros}" method="post" class="form-horizontal">
+		<fieldset>
+			<br/>
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="textinput"> Título </label>
+				<div class="col-md-4">
+					<input type="text" id="textinput" name="textinput" class="form-control input-md" th:field="*{titulo}" /> 
+					<p th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}" class="alert alert-danger" /> 
+				</div>
+			</div>
+			<br/>
+			<!-- Text input -->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="textarea"> Género </label>
+				<div class="col-md-4">
+					<input type="text" class="form-control input-md" id="text2" name="text2" th:field="*{genero}" /> 
+					<p th:if="${#fields.hasErrors('genero')}" th:errors="*{genero}" class="alert alert-danger" />  
+				</div>
+			</div>
+			<br/>
+			<!-- Text input -->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="textarea"> Autor </label>
+				<div class="col-md-4">
+					<input type="text" class="form-control input-md" id="text2" name="text2" th:field="*{autor}" />  
+					<p th:if="${#fields.hasErrors('autor')}" th:errors="*{autor}" class="alert alert-danger" /> 
+				</div>
+			</div>
+			<br/>
+			<!-- Button -->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="singlebutton"> </label>
+				<div class="col-md-4">
+					<button id="singlebutton" name="singlebutton"
+						class="btn btn-primary"> ENVIAR </button>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+	</div>
+
+</body>
+</html>

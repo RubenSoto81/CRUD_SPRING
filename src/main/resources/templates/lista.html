@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	
+	<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/style.css" rel="stylesheet" type="text/css" /> 
+</head>
+<body class="bd">
+
+	<br /><br />
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<h1> LISTA de Libros </h1>
+		</div>
+		<br />
+		<table class="table table-striped">
+			<tr>
+				<thead>
+					<th>ID</th>
+					<th>Título</th>
+					<th>Género</th>
+					<th>Autor</th>
+					<th></th>
+				</thead>
+			</tr>
+			<tr th:each="libros : ${libros}">
+				<td th:text="${libros.ID}"> </td>
+				<td th:text="${libros.titulo}"> </td>
+				<td th:text="${libros.genero}"> </td>
+				<td th:text="${libros.autor}"> </td>
+				<td><a th:href="@{/update/{id}(id=${libros.ID})}"> UPDATE </a></td>
+				<td><a th:href="@{/delete/{id}(id=${libros.ID})}"> DELETE </a></td>
+			</tr>
+		</table>
+	</div>
+	<br/>
+	<a class="btn btn-info" href="/nuevo"> NUEVO Libro </a>
+	<br/><br/>
+	<div class="panel panel-info">
+		<br/>
+		<form method="post" th:action="@{/upload}" enctype="multipart/form-data" id="fileUploadForm" class="container">
+            <div class="form-group">
+                <label class="custom-file" id="customFile">
+                    <input type="file" class="custom-file-input" name="file" aria-describedby="fileHelp">
+                    <span class="custom-file-control form-control-file"></span>
+                </label>
+            </div>
+            <div style="margin-bottom: 10px">
+                <button type="submit" class="btn btn-success">Enviar</button>
+            </div>
+        </form>
+        <br/>
+	</div>
+	
+</body>
+</html>
